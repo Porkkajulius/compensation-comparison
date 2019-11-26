@@ -1,0 +1,65 @@
+swagger: "2.0"
+info:
+  description: Compensation comparison application
+  version: "1.0.0"
+  title: employees
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api/v1
+
+# Paths supported by the server application
+paths:
+  /employee:
+    get:
+      operationId: employee.getAll
+      tags:
+        - employee
+      summary: The employee data structure supported by the server application
+      description: Read the list of employee
+      responses:
+        200:
+          description: Successful read employee list operation
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: string
+                title:
+                  type: string
+                experience:
+                  type: integer
+                company:
+                  type: string
+                salary:
+                  type: number
+    post:
+      operationId: employee.create
+      tags:
+        - employee
+      summary: Create a employee and add it to the employee list
+      description: Create a new employee in the employee list
+      parameters:
+        - name: employee
+          in: body
+          description: Employee to create
+          required: True
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              experience:
+                type: integer
+              company:
+                type: string
+              salary:
+                type: number
+      responses:
+        201:
+          description: Successfully created employee in list
