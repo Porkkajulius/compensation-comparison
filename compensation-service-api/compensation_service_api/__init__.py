@@ -1,5 +1,4 @@
 import connexion
-import compensation_service_api.web
 
 
 def create_app():
