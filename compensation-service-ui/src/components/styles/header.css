@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 5rem;
+  border-bottom: 1px solid white;
+  align-items: center;
+}
+
+.logoContainer {
+  margin-left: 20px;
+}
+
+.linkContainer {
+  margin-right: 20px;
+}

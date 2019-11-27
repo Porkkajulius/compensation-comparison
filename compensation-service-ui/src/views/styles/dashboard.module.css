@@ -1,0 +1,18 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.topLeft {
+  justify-self: start;
+}
+.topRight {
+  justify-self: end;
+}
+
+.bottomLeft {
+  justify-self: start;
+}
+.bottomRight {
+  justify-self: end;
+}
