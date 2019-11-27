@@ -47,7 +47,7 @@ paths:
             $ref: "#/definitions/employee"
         404:
           description: "employee doesn't exist"
-      x-swagger-router-controller: "web.controllers.employee_controller"
+      x-swagger-router-controller: "compensation_service_api.web.controllers.employee_controller"
     delete:
       tags:
       - "employee"
@@ -84,7 +84,7 @@ paths:
           description: "Successfully deleted employee"
         404:
           description: "employee doesn't exist"
-      x-swagger-router-controller: "web.controllers.employee_controller"
+      x-swagger-router-controller: "compensation_service_api.web.controllers.employee_controller"
 definitions:
   employee:
     required:
