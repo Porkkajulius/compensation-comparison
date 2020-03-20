@@ -15,6 +15,7 @@ def getAll():
 
 
 def create(employee):
+    saved_employee = collection.insert_one(employee)
     return make_response(
-        "Employee successfully created", 201
+        "Employee successfully created", saved_employee, 201
     )

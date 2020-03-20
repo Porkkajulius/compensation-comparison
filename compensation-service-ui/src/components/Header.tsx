@@ -5,9 +5,7 @@ import { routes } from "../routers";
 const Header = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.logoContainer}>
-        <h1 className="wrapper">Logo</h1>
-      </div>
+      <div className={styles.logoContainer}></div>
       <div className={styles.linkContainer}>
         {routes.map(route => {
           return (
