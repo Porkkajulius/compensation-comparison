@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
+  background-color: #1c142e;
+  color: aliceblue;
   min-height: 100vh;
 }
