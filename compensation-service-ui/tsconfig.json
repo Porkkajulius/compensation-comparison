@@ -14,7 +14,8 @@
     "jsx": "react",
     "noEmit": true,
     "skipLibCheck": true,
-    "types": []
+    "types": ["react", "react-dom", "reactstrap"],
+    "resolveJsonModule": true
   },
   "include": ["./src/**/*.tsx"],
   "exclude": ["node_modules", "./**/*.d.ts"]

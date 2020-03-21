@@ -1,7 +1,6 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import { IEmployee } from "../views/Dashboard";
-
+import { IEmployee } from "../interfaces/IEmployee";
 interface IChartProps {
   employees: ReadonlyArray<IEmployee>;
   width: number;
@@ -12,8 +11,9 @@ interface IChartProps {
 const Chart: React.FC<IChartProps> = ({ employees, width, height, className }) => {
   return (
     <BarChart
-      width={500}
-      height={300}
+      className={className}
+      width={width}
+      height={height}
       data={employees}
       margin={{
         top: 5,

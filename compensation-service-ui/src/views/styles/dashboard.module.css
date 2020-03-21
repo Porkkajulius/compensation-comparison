@@ -12,7 +12,9 @@
 
 .bottomLeft {
   justify-self: start;
+  padding-top: 60px;
 }
 .bottomRight {
   justify-self: end;
+  padding-top: 60px;
 }
