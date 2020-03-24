@@ -14,7 +14,7 @@ basePath: /api/v1
 paths:
   /employee:
     get:
-      operationId: employee.getAll
+      operationId: employee.findAll
       tags:
         - employee
       summary: The employee data structure supported by the server application
@@ -63,3 +63,118 @@ paths:
       responses:
         201:
           description: Successfully created employee in list
+
+  /employee/corporates/{jobTitle}:
+    post:
+      operationId: employee.findMinMedianAndMaxSalaryByJobTitleFromCorporates
+      tags:
+        - employee
+      summary: Get list of employees by min median and max salaries with corporates
+      description: Get list of employees by min median and max salaries with corporates
+      parameters:
+        - name: jobTitle
+          in: path
+          description: Id of the corporate to get
+          type: string
+          required: True
+        - name: corporates
+          in: body
+          description: List of corporates
+          required: True
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: string
+      responses:
+        201:
+          description: Successfully created employee in list
+
+  # corporate API´s
+  /corporate:
+    get:
+      operationId: corporate.findAll
+      tags:
+        - corporate
+      summary: The corporate data structure supported by the server application
+      description: Read the list of corporate
+      responses:
+        200:
+          description: Successful read corporate list operation
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+
+  /corporate/{id}:
+    get:
+      operationId: corporate.findById
+      tags:
+        - corporate
+      summary: The corporate data structure supported by the server application
+      description: Read the list of corporate
+      parameters:
+        - name: id
+          in: path
+          description: Id of the corporate to get
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successful read corporate by corporate id
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+
+  # corporate API´s
+  /jobTitle:
+    get:
+      operationId: jobTitle.findAll
+      tags:
+        - jobTitle
+      summary: The jobTitle data structure supported by the server application
+      description: Read the list of jobTitle
+      responses:
+        200:
+          description: Successful read jobTitle list operation
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+
+  /jobTitle/{id}:
+    get:
+      operationId: jobTitle.findById
+      tags:
+        - jobTitle
+      summary: The jobTitle data structure supported by the server application
+      description: Read the list of jobTitle
+      parameters:
+        - name: id
+          in: path
+          description: Id of the jobTitle to get
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successful read jobTitle by corporate id
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
