@@ -2,6 +2,7 @@ from flask import make_response
 from bson import json_util, ObjectId
 import json
 import pymongo
+import statistics
 
 # MongoDB connection
 client = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -26,11 +27,14 @@ def create(employee):
 def findAllByJobTitle(jobTitle):
     return listToJson(collection.find({'title': jobTitle}))
 
-# TODO fininalize
 def findMinMedianAndMaxSalaryByJobTitleFromCorporates(jobTitle, corporates):
     employees = listToJson(collection.find({'title': jobTitle}))
-    employeeDictionary = {}
+    corporateDictionary = {}
     for employee in employees:
-        employeeDictionary.setdefault(employee['company'], []).append(employee['salary'])
+        corporateDictionary.setdefault(employee['company'], []).append(employee['salary'])
     filteredDictionary = {}
-    return employeeDictionary
+    for corporate in corporateDictionary:
+         filteredDictionary.setdefault(corporate, []).append(min(corporateDictionary[corporate]))
+         filteredDictionary.setdefault(corporate, []).append(statistics.median(corporateDictionary[corporate]))
+         filteredDictionary.setdefault(corporate, []).append(max(corporateDictionary[corporate]))
+    return filteredDictionary
