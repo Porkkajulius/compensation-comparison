@@ -14,10 +14,10 @@ basePath: /api/v1
 paths:
   /employee:
     get:
-      operationId: employee.findAll
+      summary: The employee data structure supported by the server application
+      operationId: findAll
       tags:
         - employee
-      summary: The employee data structure supported by the server application
       description: Read the list of employee
       responses:
         200:
@@ -36,8 +36,10 @@ paths:
                   type: string
                 salary:
                   type: number
+      x-swagger-router-controller: "compensation_api.controllers.employee"
+
     post:
-      operationId: employee.create
+      operationId: create
       tags:
         - employee
       summary: Create a employee and add it to the employee list
@@ -63,10 +65,11 @@ paths:
       responses:
         201:
           description: Successfully created employee in list
+      x-swagger-router-controller: "compensation_api.controllers.employee"
 
   /employee/corporates/{jobTitle}:
     post:
-      operationId: employee.findMinMedianAndMaxSalaryByJobTitleFromCorporates
+      operationId: findMinMedianAndMaxSalaryByJobTitleFromCorporates
       tags:
         - employee
       summary: Get list of employees by min median and max salaries with corporates
@@ -90,11 +93,12 @@ paths:
       responses:
         201:
           description: Successfully created employee in list
+      x-swagger-router-controller: "compensation_api.controllers.employee"
 
   # corporate API´s
   /corporate:
     get:
-      operationId: corporate.findAll
+      operationId: findAll
       tags:
         - corporate
       summary: The corporate data structure supported by the server application
@@ -110,10 +114,11 @@ paths:
                   type: string
                 name:
                   type: string
+      x-swagger-router-controller: "compensation_api.controllers.corporate"
 
   /corporate/{id}:
     get:
-      operationId: corporate.findById
+      operationId: findById
       tags:
         - corporate
       summary: The corporate data structure supported by the server application
@@ -134,11 +139,12 @@ paths:
                 type: string
               name:
                 type: string
+      x-swagger-router-controller: "compensation_api.controllers.corporate"
 
   # corporate API´s
   /jobTitle:
     get:
-      operationId: jobTitle.findAll
+      operationId: findAll
       tags:
         - jobTitle
       summary: The jobTitle data structure supported by the server application
@@ -154,10 +160,11 @@ paths:
                   type: string
                 name:
                   type: string
+      x-swagger-router-controller: "compensation_api.controllers.jobTitle"
 
   /jobTitle/{id}:
     get:
-      operationId: jobTitle.findById
+      operationId: findById
       tags:
         - jobTitle
       summary: The jobTitle data structure supported by the server application
@@ -178,3 +185,4 @@ paths:
                 type: string
               name:
                 type: string
+      x-swagger-router-controller: "compensation_api.controllers.jobTitle"
