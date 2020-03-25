@@ -1,4 +1,4 @@
-from compensation-service import create_app
+from compensation_api import create_app
 
 application = create_app()
 
