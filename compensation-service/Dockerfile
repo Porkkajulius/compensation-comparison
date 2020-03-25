@@ -12,4 +12,4 @@ COPY . /usr/src/app
 EXPOSE 5000
 
 ENTRYPOINT [ "gunicorn" ]
-CMD ["-w", "2", "-b", "0.0.0.0:5000", "compensation_service_api.wsgi"]
+CMD ["-w", "2", "-b", "0.0.0.0:5000", "wsgi"]

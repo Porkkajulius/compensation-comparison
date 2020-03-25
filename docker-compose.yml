@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  compensation-service-api:
+  compensation-service:
     build:
-      context: ./compensation-service-api
+      context: ./compensation-service
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
