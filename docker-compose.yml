@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   compensation-service:
@@ -8,9 +8,21 @@ services:
     ports:
       - "5000:5000"
 
-  mongodb:
+  mongo-seed:
+    image: fvilers/mongo-seed
+    environment:
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+    volumes:
+      - ./data:/data
+    command:
+      "mongoimport --host mongo --port 27017 --db employees --collection employee --file /data/employee.json --jsonArray ;
+      mongoimport --host mongo --port 27017 --db employees --collection corporate --file /data/corporate.json --jsonArray ;
+      mongoimport --host mongo --port 27017 --db employees --collection jobTitle --file /data/jobTitle.json --jsonArray"
+
+  mongo:
     image: mongo:latest
     environment:
-        MONGO_INITDB_DATABASE: employees
+      MONGO_INITDB_DATABASE: employees
     ports:
       - 27017:27017

@@ -4,7 +4,7 @@ import json
 import pymongo
 
 # MongoDB connection
-client = pymongo.MongoClient("mongodb://mongodb:27017/")
+client = pymongo.MongoClient("mongodb://mongo:27017/")
 db = client["employees"]
 collection = db["jobTitle"]
 
