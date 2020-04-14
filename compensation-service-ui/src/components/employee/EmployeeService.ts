@@ -1,6 +1,6 @@
 import HttpUtil from "../../utils/HttpUtil";
 import * as config from "../../configs/uriConfig.json";
-import { IEmployee, IMinMaxMedianSalary, ICompany, IJobTitle } from "./IEmployee";
+import { IEmployee, IMinMaxMedianSalary, ICompany, IJobTitle, ISalaryIncrease } from "./IEmployee";
 
 const useEmployeeService = () => {
   const { fetchGet, fetchPost } = HttpUtil.useHttpService();
@@ -14,9 +14,15 @@ const useEmployeeService = () => {
       return await fetchPost(config.employeeUri, body);
     },
     getMinMedianAndMaxEmployeesByJobTitleByCorporate: async (company: string, body: string[]) => {
-      const result = await fetchPost(config.employeeUri + "/corporates/" + company, body);
+      const result = await fetchPost(config.employeeUri + "/corporates/minMaxMedian/" + company, body);
       const employees: IMinMaxMedianSalary[] = await result.json();
       employees.map((i: IMinMaxMedianSalary) => i);
+      return employees;
+    },
+    getSalaryIncreaseByExperienceYearsFromCorporates: async (company: string, body: string[]) => {
+      const result = await fetchPost(config.employeeUri + "/corporates/salaryIncrease/" + company, body);
+      const employees: ISalaryIncrease[] = await result.json();
+      employees.map((i: ISalaryIncrease) => i);
       return employees;
     },
     getCompanies: async () => {

@@ -16,6 +16,16 @@ export interface ISalary {
   min: number;
 }
 
+export interface ISalaryIncrease {
+  name: string;
+  data: IData[];
+}
+
+export interface IData {
+  experience: number;
+  salary: number;
+}
+
 export interface ICompany {
   id: string;
   name: string;
