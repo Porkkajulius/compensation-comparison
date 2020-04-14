@@ -10,50 +10,6 @@ interface IChartProps {
 }
 
 const strokes = ["#3EB7F8", "#52F012", "#FAFE0A"];
-const data = [
-  {
-    data: [
-      {
-        experience: 1,
-        salary: 2500
-      },
-      {
-        experience: 2,
-        salary: 3000
-      },
-      {
-        experience: 3,
-        salary: 4000
-      },
-      {
-        experience: 4,
-        salary: 6000
-      },
-      {
-        experience: 5,
-        salary: 8000
-      }
-    ],
-    name: "TietoEvry"
-  },
-  {
-    data: [
-      {
-        experience: 5,
-        salary: 2000
-      },
-      {
-        experience: 15,
-        salary: 9000
-      },
-      {
-        experience: 20,
-        salary: 12000
-      }
-    ],
-    name: "Qentinel"
-  }
-];
 
 const ChartSalaryIncreaseByExperienceYears: React.FC<IChartProps> = ({ salaryIncreases, width, height, className }) => {
   console.log(salaryIncreases);

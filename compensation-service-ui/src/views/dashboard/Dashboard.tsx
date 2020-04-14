@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles/dashboard.module.css";
-import EmployeeService from "../employee/EmployeeService";
-import { CreateEmployee } from "../createEmployee/CreateEmployee";
-import { IEmployee, IMinMaxMedianSalary, ICompany, IJobTitle, ISalaryIncrease } from "../employee/IEmployee";
-import { ChartMinMaxMedian } from "../chartMinMaxMedian/ChartMinMaxMedian";
-import { ChartSalaryIncreaseByExperienceYears } from "../chartSalaryIncreaseByExperience/ChartSalaryIncreaseByExperienceYears";
-import { ChooseComparisationData } from "../chooseComparisationData/ChooseComparisationData";
+import EmployeeService from "../../components/employee/EmployeeService";
+import { CreateEmployee } from "../../components/createEmployee/CreateEmployee";
+import {
+  IEmployee,
+  IMinMaxMedianSalary,
+  ICompany,
+  IJobTitle,
+  ISalaryIncrease
+} from "../../components/employee/IEmployee";
+import { ChartMinMaxMedian } from "../../components/chartMinMaxMedian/ChartMinMaxMedian";
+import { ChartSalaryIncreaseByExperienceYears } from "../../components/chartSalaryIncreaseByExperience/ChartSalaryIncreaseByExperienceYears";
+import { ChooseComparisationData } from "../../components/chooseComparisationData/ChooseComparisationData";
+import { CorporateByJobTitleList } from "../../components/corporateByJobTitleList/CorporateByJobTitleList";
 
 const width = 600;
 const height = 300;
@@ -87,9 +94,11 @@ const Dashboard: React.FC = ({}) => {
           ></ChartSalaryIncreaseByExperienceYears>
         </div>
       )}
-      <div className={styles.positionBot}>
+      <div className={styles.middleWhole}>
+        <CorporateByJobTitleList></CorporateByJobTitleList>
+        <br></br>
         <button className={styles.myButton} onClick={() => handleCompareSalaryClick()}>
-          Compare salaries
+          Add company to charts
         </button>
 
         <button className={styles.myButton} onClick={() => handleCreateSalaryClick()}>
