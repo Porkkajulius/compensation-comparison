@@ -1,0 +1,14 @@
+.blur {
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: #1c142e;
+  position: fixed;
+  margin: auto;
+  left: 30%;
+  width: 400px;
+  height: 600px;
+  z-index: 1;
+  border: 0px solid #fff;
+  -webkit-box-shadow: -48px 62px 41px 70px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -48px 62px 41px 70px rgba(0, 0, 0, 0.75);
+  box-shadow: -48px 62px 41px 70px rgba(0, 0, 0, 0.75);
+}

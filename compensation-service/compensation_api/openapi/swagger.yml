@@ -87,6 +87,32 @@ paths:
           schema:
             type: array
             items:
+              type: string
+      responses:
+        201:
+          description: Successfully created employee in list
+      x-swagger-router-controller: "compensation_api.controllers.employee"
+
+  /employee/corporates/{jobTitle}/PEPPU:
+    post:
+      operationId: findSalaryIncreaseByExperienceYearsFromCorporates
+      tags:
+        - employee
+      summary: Get list of employee salaries increasing by experience years from corporates
+      description: Get list of employee salaries increasing by experience years from corporates
+      parameters:
+        - name: jobTitle
+          in: path
+          description: Id of the corporate to get
+          type: string
+          required: True
+        - name: corporates
+          in: body
+          description: List of corporates
+          required: True
+          schema:
+            type: array
+            items:
               properties:
                 id:
                   type: string

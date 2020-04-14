@@ -1,20 +1,20 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import { IEmployee } from "../interfaces/IEmployee";
+import { IMinMaxMedianSalary } from "../employee/IEmployee";
 interface IChartProps {
-  employees: ReadonlyArray<IEmployee>;
+  salaries: ReadonlyArray<IMinMaxMedianSalary>;
   width: number;
   height: number;
   className: string;
 }
 
-const Chart: React.FC<IChartProps> = ({ employees, width, height, className }) => {
+const ChartMinMaxMedian: React.FC<IChartProps> = ({ salaries, width, height, className }) => {
   return (
     <BarChart
       className={className}
       width={width}
       height={height}
-      data={employees}
+      data={salaries}
       margin={{
         top: 5,
         right: 30,
@@ -23,13 +23,15 @@ const Chart: React.FC<IChartProps> = ({ employees, width, height, className }) =
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="title" />
+      <XAxis dataKey="corporate" />
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="salary" fill="#8884d8" />
+      <Bar dataKey="min" fill="#3EB7F8" />
+      <Bar dataKey="median" fill="#52F012" />
+      <Bar dataKey="max" fill="#FAFE0A" />
     </BarChart>
   );
 };
 
-export { Chart };
+export { ChartMinMaxMedian };

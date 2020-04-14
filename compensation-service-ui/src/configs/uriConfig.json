@@ -1,3 +1,5 @@
 {
-    "employeeUri": "http://localhost:5000/api/v1/employee"
+    "employeeUri": "http://localhost:5000/api/v1/employee",
+    "companyUri": "http://localhost:5000/api/v1/corporate",
+    "jobTitleUri": "http://localhost:5000/api/v1/jobTitle"
 }

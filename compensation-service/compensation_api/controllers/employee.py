@@ -19,22 +19,31 @@ def findAll():
     return listToJson(collection.find())
 
 def create(employee):
-    saved_employee = collection.insert_one(employee)
+    #saved_employee = collection.insert_one(employee)
+    collection.insert_one(employee)
     return make_response(
-        "Employee successfully created", objectToJson(saved_employee), 201
+        "Employee successfully created", 201 #, objectToJson(saved_employee), 201
     )
 
 def findAllByJobTitle(jobTitle):
     return listToJson(collection.find({'title': jobTitle}))
 
 def findMinMedianAndMaxSalaryByJobTitleFromCorporates(jobTitle, corporates):
-    employees = listToJson(collection.find({'title': jobTitle}))
+    employees = listToJson(collection.find({ '$and': [ {'title': jobTitle}, { 'company': { '$in' : corporates}}]}))
     corporateDictionary = {}
     for employee in employees:
         corporateDictionary.setdefault(employee['company'], []).append(employee['salary'])
-    filteredDictionary = {}
+    filteredList = []
     for corporate in corporateDictionary:
-         filteredDictionary.setdefault(corporate, []).append(min(corporateDictionary[corporate]))
-         filteredDictionary.setdefault(corporate, []).append(statistics.median(corporateDictionary[corporate]))
-         filteredDictionary.setdefault(corporate, []).append(max(corporateDictionary[corporate]))
-    return filteredDictionary
+         data_set = {
+            "corporate": corporate,
+            "title": employee['title'],
+            "min": min(corporateDictionary[corporate]),
+            "median": statistics.median(corporateDictionary[corporate]),
+            "max": max(corporateDictionary[corporate])
+         }
+         filteredList.append(data_set)
+    return filteredList
+
+def findSalaryIncreaseByExperienceYearsFromCorporates(jobTitle, corporates):
+    return "null"

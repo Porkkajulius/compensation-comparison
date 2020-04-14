@@ -1,0 +1,87 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.topLeft {
+  justify-self: start;
+}
+.topRight {
+  justify-self: end;
+}
+
+.bottomLeft {
+  justify-self: start;
+  padding-top: 60px;
+}
+.bottomRight {
+  justify-self: end;
+  padding-top: 60px;
+}
+
+.container {
+  justify-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.myButton {
+  box-shadow: 4px 5px 0px 0px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 7px;
+  border: 2px solid #4e6096;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 14px 76px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
+  width: 100%;
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.boxButton {
+  box-shadow: 4px 5px 0px 0px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 7px;
+  border: 2px solid #4e6096;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 14px 76px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
+  width: 300px;
+  height: 300px;
+}
+.boxButton:hover {
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
+}
+.boxButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.positionBot {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}

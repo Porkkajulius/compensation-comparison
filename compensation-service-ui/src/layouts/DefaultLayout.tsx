@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../components/Header";
+import { Header } from "../components/header/Header";
 import styles from "./styles/defaultLayout.css";
 const DefaultLayout = (props: React.PropsWithChildren<{}>) => {
   return (

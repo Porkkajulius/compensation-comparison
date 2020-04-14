@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./styles/header.css";
+import styles from "./header.css";
 import { Link } from "react-router-dom";
-import { routes } from "../routers";
+import { routes } from "../../routers";
 const Header = () => {
   return (
     <div className={styles.wrapper}>
