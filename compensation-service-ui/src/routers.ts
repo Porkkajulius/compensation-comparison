@@ -1,5 +1,5 @@
-import { Dashboard } from "./views/Dashboard";
-import { Test } from "./views/Test";
+import { Dashboard } from "./components/dashboard/Dashboard";
+import { Test } from "./components/dashboard/Test";
 
 type RouteProp = {
   component: React.ComponentType;
