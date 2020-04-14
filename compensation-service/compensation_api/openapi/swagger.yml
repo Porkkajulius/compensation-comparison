@@ -67,7 +67,7 @@ paths:
           description: Successfully created employee in list
       x-swagger-router-controller: "compensation_api.controllers.employee"
 
-  /employee/corporates/{jobTitle}:
+  /employee/corporates/minMaxMedian/{jobTitle}:
     post:
       operationId: findMinMedianAndMaxSalaryByJobTitleFromCorporates
       tags:
@@ -93,7 +93,7 @@ paths:
           description: Successfully created employee in list
       x-swagger-router-controller: "compensation_api.controllers.employee"
 
-  /employee/corporates/{jobTitle}/PEPPU:
+  /employee/corporates/salaryIncrease/{jobTitle}:
     post:
       operationId: findSalaryIncreaseByExperienceYearsFromCorporates
       tags:

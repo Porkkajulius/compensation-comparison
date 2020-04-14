@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./styles/dashboard.module.css";
 import EmployeeService from "../employee/EmployeeService";
 import { CreateEmployee } from "../createEmployee/CreateEmployee";
-import { IEmployee, IMinMaxMedianSalary, ICompany, IJobTitle } from "../employee/IEmployee";
+import { IEmployee, IMinMaxMedianSalary, ICompany, IJobTitle, ISalaryIncrease } from "../employee/IEmployee";
 import { ChartMinMaxMedian } from "../chartMinMaxMedian/ChartMinMaxMedian";
 import { ChartSalaryIncreaseByExperienceYears } from "../chartSalaryIncreaseByExperience/ChartSalaryIncreaseByExperienceYears";
 import { ChooseComparisationData } from "../chooseComparisationData/ChooseComparisationData";
@@ -18,8 +18,14 @@ const Dashboard: React.FC = ({}) => {
   const [jobTitles, setJobTitles] = useState<ReadonlyArray<IJobTitle>>([]);
   const [employees, setEmployees] = useState<ReadonlyArray<IEmployee>>([]);
   const [salaries, setSalaries] = useState<ReadonlyArray<IMinMaxMedianSalary>>([]);
+  const [salaryIncreases, setSalaryIncreases] = useState<ReadonlyArray<ISalaryIncrease>>([]);
   useEffect(() => {
     fetchMinMedianAndMaxEmployeesByJobTitleByCorporate([
+      "5e7b67a91815f36155078206",
+      "5e7b67aa1815f36155078207",
+      "5e7b67aa1815f36155078208"
+    ]);
+    fetchSalaryIncreaseByExperienceYearsFromCorporates([
       "5e7b67a91815f36155078206",
       "5e7b67aa1815f36155078207",
       "5e7b67aa1815f36155078208"
@@ -29,6 +35,12 @@ const Dashboard: React.FC = ({}) => {
   const fetchMinMedianAndMaxEmployeesByJobTitleByCorporate = async (companies: string[]) => {
     setSalaries(
       await employeeService.getMinMedianAndMaxEmployeesByJobTitleByCorporate("5e7b67dd1815f3615507820a", companies)
+    );
+  };
+
+  const fetchSalaryIncreaseByExperienceYearsFromCorporates = async (companies: string[]) => {
+    setSalaryIncreases(
+      await employeeService.getSalaryIncreaseByExperienceYearsFromCorporates("5e7b67dd1815f3615507820a", companies)
     );
   };
 
@@ -68,6 +80,7 @@ const Dashboard: React.FC = ({}) => {
         <div className={styles.wrapper}>
           <ChartMinMaxMedian salaries={salaries} height={height} width={width} className={styles.topLeft} />
           <ChartSalaryIncreaseByExperienceYears
+            salaryIncreases={salaryIncreases}
             height={height}
             width={width}
             className={styles.topRight}
