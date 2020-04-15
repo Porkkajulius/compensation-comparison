@@ -1,1 +1,1 @@
-export const blur: string;
+export const select: string;

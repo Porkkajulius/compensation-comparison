@@ -26,6 +26,13 @@ export interface IData {
   salary: number;
 }
 
+export interface IListData {
+  companyId: string;
+  company: string;
+  jobTitleId: string;
+  jobTitle: string;
+}
+
 export interface ICompany {
   id: string;
   name: string;

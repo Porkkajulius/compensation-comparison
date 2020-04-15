@@ -1,83 +1,84 @@
-import React, { useState, FormEvent } from "react";
-import { IEmployee, ICompany, IJobTitle } from "../employee/IEmployee";
+import React, { useState } from "react";
+import { ICompany, IJobTitle, IListData } from "../employee/IEmployee";
 import styles from "./styles/chooseComparisationData.css";
+import stylesDash from "../../views/dashboard/styles/dashboard.module.css";
 interface ICreateProps {
-  create: (create: IEmployee) => void;
-  setShowCreateSalary: (input: boolean) => void;
   companies: ReadonlyArray<ICompany>;
   jobTitles: ReadonlyArray<IJobTitle>;
+  addItemToListData: (data: IListData) => void;
 }
 
-const initializeEmployee: IEmployee = {
-  company: "",
-  salary: 0,
-  experience: 0,
-  title: ""
+const initCompany: ICompany = {
+  id: "",
+  name: ""
 };
 
-const ChooseComparisationData: React.FC<ICreateProps> = ({ create, setShowCreateSalary, companies, jobTitles }) => {
-  const [employee, setEmployee] = useState<IEmployee>(initializeEmployee);
+const initJobTitle: IJobTitle = {
+  id: "",
+  name: ""
+};
 
-  const onInputChange = (e: React.FormEvent<HTMLInputElement>) => {
-    e.currentTarget.type === "number"
-      ? setEmployee({ ...employee, [e.currentTarget.name]: e.currentTarget.valueAsNumber })
-      : setEmployee({ ...employee, [e.currentTarget.name]: e.currentTarget.value });
+const ChooseComparisationData: React.FC<ICreateProps> = ({ companies, jobTitles, addItemToListData }) => {
+  const [company, setCompany] = useState<ICompany>(initCompany);
+  const [jobTitle, setJobTitle] = useState<IJobTitle>(initJobTitle);
+
+  const onSelectInputChange = (e: React.FormEvent<HTMLSelectElement>) => {
+    if (e.currentTarget.name === "company") setCompany({ name: "", id: e.currentTarget.value });
+    if (e.currentTarget.name === "jobTitle") setJobTitle({ name: "", id: e.currentTarget.value });
   };
 
-  const handleCreateEmployee = (e: FormEvent) => {
-    e.preventDefault();
-    create(employee);
-    setShowCreateSalary(false);
+  const addToList = () => {
+    // TODO nyt backend vastaanottaa arrayn mutta voisi myös vastaanottaa yhden itemin kerrallaan
+    const selectedCompany: ICompany = companies.filter(item => item.id === company.id)[0];
+    const selectedJobTitle: IJobTitle = jobTitles.filter(item => item.id === jobTitle.id)[0];
+    const listData: IListData = {
+      companyId: selectedCompany.id,
+      company: selectedCompany.name,
+      jobTitleId: selectedJobTitle.id,
+      jobTitle: selectedJobTitle.name
+    };
+    addItemToListData(listData);
   };
-
+  console.log("companies", companies);
   return (
     <>
-      <div className={styles.blur}>
-        <form onSubmit={e => handleCreateEmployee(e)}>
-          <label>
-            Company:
-            <input
-              type="text"
-              name="company"
-              onChange={e => {
-                onInputChange(e);
-              }}
-            />
-          </label>
-          <label>
-            Salary:
-            <input
-              type="number"
-              name="salary"
-              onChange={e => {
-                onInputChange(e);
-              }}
-            />
-          </label>
-          <label>
-            Experience years:
-            <input
-              type="number"
-              name="experience"
-              onChange={e => {
-                onInputChange(e);
-              }}
-            />
-          </label>
-          <label>
-            Job title:
-            <input
-              type="text"
-              name="title"
-              onChange={e => {
-                onInputChange(e);
-              }}
-            />
-          </label>
-          <br></br>
-          <input type="submit" value="Add" />
-        </form>
-      </div>
+      <td>
+        <select
+          className={styles.select}
+          name="company"
+          id="dropdown"
+          onChange={e => {
+            onSelectInputChange(e);
+          }}
+        >
+          {companies.map(company => (
+            <option key={company.id} value={company.id}>
+              {company.name}
+            </option>
+          ))}
+        </select>
+      </td>
+      <td>
+        <select
+          className={styles.select}
+          name="jobTitle"
+          id="dropdown"
+          onChange={e => {
+            onSelectInputChange(e);
+          }}
+        >
+          {jobTitles.map((title, index) => (
+            <option key={index} value={title.id}>
+              {title.name}
+            </option>
+          ))}
+        </select>
+      </td>
+      <td>
+        <button className={stylesDash.myButton} onClick={addToList}>
+          Add
+        </button>
+      </td>
     </>
   );
 };

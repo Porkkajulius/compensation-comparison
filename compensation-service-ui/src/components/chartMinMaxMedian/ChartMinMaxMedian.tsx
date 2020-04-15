@@ -1,8 +1,8 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import { IMinMaxMedianSalary } from "../employee/IEmployee";
+import { ISalary } from "../employee/IEmployee";
 interface IChartProps {
-  salaries: ReadonlyArray<IMinMaxMedianSalary>;
+  salaries: ReadonlyArray<ISalary>;
   width: number;
   height: number;
   className: string;
@@ -27,9 +27,9 @@ const ChartMinMaxMedian: React.FC<IChartProps> = ({ salaries, width, height, cla
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="min" fill="#3EB7F8" />
-      <Bar dataKey="median" fill="#52F012" />
-      <Bar dataKey="max" fill="#FAFE0A" />
+      <Bar dataKey="min" fill="#FFC300" />
+      <Bar dataKey="median" fill="#FF5733" />
+      <Bar dataKey="max" fill="#C70039" />
     </BarChart>
   );
 };

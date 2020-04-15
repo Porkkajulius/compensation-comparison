@@ -15,7 +15,15 @@ def objectToJson(data):
     return json.loads(json_util.dumps(data))
 
 def findAll():
-    return listToJson(collection.find())
+    corporates = listToJson(collection.find())
+    filteredList = []
+    for corporate in corporates:
+        data_set = {
+            "id": corporate['_id']['$oid'],
+            "name": corporate['name']
+        }
+        filteredList.append(data_set)
+    return filteredList
 
 def findById(id):
     return objectToJson(collection.find_one({'_id': ObjectId(id)}))
