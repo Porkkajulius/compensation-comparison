@@ -7,6 +7,7 @@ table.darkTable {
 }
 
 th {
+  padding-left: 10px;
   background: #1b2a42;
 }
 
@@ -15,4 +16,8 @@ tr {
   padding-bottom: 1em;
   border: 1px solid #999;
   height: 40px;
+}
+
+td {
+  padding-left: 10px;
 }
