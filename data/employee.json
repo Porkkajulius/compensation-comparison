@@ -2,7 +2,7 @@
     {
         "company": "5e7b67a91815f36155078206",
         "experience": 1,
-        "salary": 2500,
+        "salary": 2400,
         "title": "5e7b67dd1815f3615507820a"
     },
     {
@@ -14,43 +14,43 @@
     {
         "company": "5e7b67a91815f36155078206",
         "experience": 3,
-        "salary": 4000,
+        "salary": 3700,
         "title": "5e7b67dd1815f3615507820a"
     },
     {
         "company": "5e7b67a91815f36155078206",
         "experience": 4,
-        "salary": 6000,
+        "salary": 4000,
         "title": "5e7b67dd1815f3615507820a"
     },
     {
         "company": "5e7b67a91815f36155078206",
         "experience": 5,
-        "salary": 8000,
+        "salary": 5000,
         "title": "5e7b67dd1815f3615507820a"
     },
     {
         "company": "5e7b67aa1815f36155078207",
-        "experience": 5,
+        "experience": 1,
         "salary": 2000,
         "title": "5e7b67dd1815f3615507820a"
     },
     {
         "company": "5e7b67aa1815f36155078207",
-        "experience": 15,
-        "salary": 9000,
+        "experience": 3,
+        "salary": 5000,
         "title": "5e7b67dd1815f3615507820a"
     },
     {
         "company": "5e7b67aa1815f36155078207",
-        "experience": 20,
-        "salary": 12000,
+        "experience": 5,
+        "salary": 7500,
         "title": "5e7b67dd1815f3615507820a"
     },
     {
         "company": "5e7b67aa1815f36155078208",
-        "experience": 35,
-        "salary": 1200,
+        "experience": 4,
+        "salary": 3000,
         "title": "5e7b67dd1815f3615507820a"
     }
 ]

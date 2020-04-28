@@ -1,14 +1,33 @@
 .blur {
   backdrop-filter: saturate(180%) blur(20px);
-  background-color: #1c142e;
+  background-color: #1b2a42;
   position: fixed;
   margin: auto;
   left: 30%;
-  width: 400px;
+  width: 600px;
   height: 600px;
   z-index: 1;
   border: 0px solid #fff;
   -webkit-box-shadow: -48px 62px 41px 70px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -48px 62px 41px 70px rgba(0, 0, 0, 0.75);
   box-shadow: -48px 62px 41px 70px rgba(0, 0, 0, 0.75);
+}
+
+label {
+  height: 40px;
+  width: 130px;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: right;
+  clear: both;
+  float: left;
+  margin-right: 15px;
+}
+input,
+select {
+  height: 40px;
+  width: 300px;
+  border: 1px solid #000;
+  margin-top: 10px;
+  float: left;
 }
