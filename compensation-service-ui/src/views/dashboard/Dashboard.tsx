@@ -54,7 +54,9 @@ const Dashboard: React.FC = ({}) => {
     setJobTitles(await employeeService.getJobTitles());
   };
 
-  const handleCreateSalaryClick = () => {
+  const handleCreateSalaryClick = async () => {
+    setCompanies(await employeeService.getCompanies());
+    setJobTitles(await employeeService.getJobTitles());
     setShowCreateSalary(true);
   };
 
@@ -67,7 +69,12 @@ const Dashboard: React.FC = ({}) => {
     <>
       {showCreateSalary && (
         <div>
-          <CreateEmployee create={create} setShowCreateSalary={setShowCreateSalary} />
+          <CreateEmployee
+            create={create}
+            setShowCreateSalary={setShowCreateSalary}
+            companies={companies}
+            jobTitles={jobTitles}
+          />
         </div>
       )}
       {salaries.length > 0 && (
